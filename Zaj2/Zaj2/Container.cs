@@ -5,18 +5,18 @@ using System;
 
 namespace Zaj2
 {
-    abstract class Container
+    public class Container
     {
-        private double mass;            // kg
+        private double cargoMass;            // kg
         private double height;          // cm
         private double emptyWeight;    // kg
         private double depth;           // cm
         private double maxCapacity;     // kg
         private String serialNumber;    // KON-<type(L,G,C)>-<num>
 
-        protected Container(double mass, double height, double emptyWeight, double depth, double maxCapacity, string serialNumber)
+        protected Container(double cargoMass, double height, double emptyWeight, double depth, double maxCapacity, string serialNumber)
         {
-            this.mass = mass;
+            this.cargoMass = cargoMass;
             this.height = height;
             this.emptyWeight = emptyWeight;
             this.depth = depth;
@@ -24,11 +24,24 @@ namespace Zaj2
             this.serialNumber = serialNumber;
         }
 
-        // Unloads the given container
-        private void UnloadContainer()
+        // UnloadContainer() - Unloads the given container
+        // To be overriden in subclasses with product type that was unloaded
+        public void UnloadContainer()
         {
+            Console.WriteLine("Unloaded container: " + serialNumber);
+            Console.WriteLine("Unloaded cargo: " + cargoMass);
             
         }
         
+        // LoadContainer() - Loads a given container with specified amount of cargo
+        public void LoadContainer()
+        {
+            Console.WriteLine();
+        }
+
+        public String GetContainerSerialNumber()
+        {
+            return this.serialNumber;
+        }
     }
 }
