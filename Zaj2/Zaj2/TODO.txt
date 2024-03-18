@@ -1,0 +1,7 @@
+﻿Kontener
+|
+|
+--->
+    a) kontener na plyny
+    b) kontener na gaz
+    c) kontener chlodniczy
